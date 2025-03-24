@@ -16,27 +16,44 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
+    <link href="css/loader.css" rel="stylesheet" />
+
+
 </head>
 
 <body>
-    <div id="app">
+    <!-- Lottie Loading Overlay -->
+    <div id="loading-overlay">
+
+        <!-- Close Button -->
+        <!--<button id="close-button" onclick="hideLottieLoader()">×</button>-->
+
+        <div id="loading-screen" style="width: 300px; height: 300px;"></div>
+        <!-- Only ONE Percentage Display -->
+        <p id="loading-progress-text" style="color: white; font-size: 2em; margin-top: 20px;">0%</p>
+    </div>
+    <div id="app"></div>
+
+    <!--<div id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
             <circle r="40%" cx="50%" cy="50%" />
         </svg>
         <div class="loading-progress-text"></div>
-    </div>
+    </div>-->
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
-
-
     <script src="js/parentChildBubbles.js"></script>
+    <script src="js/loader.js"></script>
 
 </body>
 
