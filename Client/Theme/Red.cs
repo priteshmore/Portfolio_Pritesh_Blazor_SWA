@@ -2,6 +2,9 @@
 
 namespace BlazorApp.Client.Theme
 {
+    /// <summary>
+    /// This is Red theme
+    /// </summary>
     public class Red : MudTheme
     {
         public Red()
