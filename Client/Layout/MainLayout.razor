@@ -1,6 +1,8 @@
-﻿@using BlazorApp.Client.Utility
+﻿@using BlazorApp.Client.Component
+@using BlazorApp.Client.Utility
 @inherits LayoutComponentBase
 @inject ThemeSetup themeSetp
+@inject IJSRuntime JSRuntime
 
 <MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
 <MudPopoverProvider />
@@ -100,6 +102,17 @@
         true => Icons.Material.Rounded.AutoMode,
         false => Icons.Material.Outlined.DarkMode,
     };
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Call JavaScript function to hide the loader once Blazor finishes rendering
+            await JSRuntime.InvokeVoidAsync("hideLottieLoader");
+        }
+    }
 }
 
 
