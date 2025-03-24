@@ -1,0 +1,27 @@
+﻿<MudPaper Class="p-6 mb-8 max-w-5xl mx-auto shadow-xl rounded-2xl bg-transparent">
+    <MudGrid Class="items-center gap-4">
+        <MudItem xs="12" md="4" Class="flex justify-center items-center">
+            <MudAvatar Icon="@Icons.Material.Filled.Assignment" Size="Size.Large" Color="Color.Primary" />
+        </MudItem>
+        <MudItem xs="12" md="8">
+            <MudTypography Variant="h4" Class="font-bold mb-2 text-primary">@ProjectTitle</MudTypography>
+            <MudTypography Variant="body1" Class="text-gray-700 mb-1"><strong>Organization:</strong> @OrganizationName</MudTypography>
+            <MudTypography Variant="body1" Class="text-gray-700 mb-1"><strong>Position:</strong> @Position</MudTypography>
+            <MudTypography Variant="body1" Class="text-gray-700 mb-2"><strong>Timeline:</strong> @Timeline</MudTypography>
+            <MudDivider Class="my-2" />
+            <MudTypography Variant="body1" Class="mb-1 text-gray-900"><strong>Role:</strong> @Role</MudTypography>
+            <MudTypography Variant="body1" Class="mb-2 text-gray-900"><strong>Responsibilities:</strong> @Responsibilities</MudTypography>
+            <MudTypography Variant="body2" Class="italic text-gray-500">@Description</MudTypography>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
+@code {
+    [Parameter] public string ProjectTitle { get; set; } = "Project Title";
+    [Parameter] public string OrganizationName { get; set; } = "Organization Name";
+    [Parameter] public string Position { get; set; } = "Your Position";
+    [Parameter] public string Timeline { get; set; } = "Timeline of the project";
+    [Parameter] public string Role { get; set; } = "Your role in the project";
+    [Parameter] public string Responsibilities { get; set; } = "Your key responsibilities";
+    [Parameter] public string Description { get; set; } = "Brief description of the project...";
+}

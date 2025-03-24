@@ -1,0 +1,39 @@
+﻿@inject IJSRuntime JSRuntime
+
+<MudPaper Class="p-4" Elevation="4" Style="background-color: transparent; max-width: 850px; margin: 20px auto; text-align: center;">
+    <h3>Skill Bubbles - Parent and Child</h3>
+    <svg id="parentChildBubbles" style="width: 100%; height: 500px;"></svg>
+</MudPaper>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var skills = new[]
+            {
+                new { id = "Programming", size = 35, parent = "" },
+                new { id = "C#", size = 25, parent = "Programming" },
+                new { id = "JavaScript", size = 20, parent = "Programming" },
+                new { id = "TypeScript", size = 20, parent = "JavaScript" },
+
+                new { id = "Blazor", size = 22, parent = "C#" },
+                new { id = "Angular", size = 22, parent = "TypeScript" },
+
+                new { id = "Cloud", size = 35, parent = "" },
+                new { id = "Azure", size = 25, parent = "Cloud" },
+
+                new { id = "DevOps", size = 22, parent = "Azure" },
+
+                new { id = "Database", size = 30, parent = "" },
+                new { id = "MS SQL Server", size = 20, parent = "Database" },
+                new { id = "Azure SQL Server", size = 20, parent = "Database" },
+                new { id = "SQLite", size = 18, parent = "Database" }
+            };
+
+            // Delay to ensure the SVG is fully rendered before invoking JS
+            await Task.Delay(200);
+            await JSRuntime.InvokeVoidAsync("createParentChildBubbles", "parentChildBubbles", skills);
+        }
+    }
+}
